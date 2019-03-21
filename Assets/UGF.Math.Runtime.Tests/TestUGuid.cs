@@ -53,6 +53,16 @@ namespace UGF.Math.Runtime.Tests
         }
 
         [Test]
+        public void CtorBytes()
+        {
+            var guid = new Guid("6c41817cabb74a9491243dbf485bfd88");
+            byte[] bytes = guid.ToByteArray();
+            var uguid = new UGuid(bytes);
+            
+            Assert.AreEqual(guid.ToString("N"), uguid.ToString());
+        }
+
+        [Test]
         public void ToByteArray()
         {
             UGuid uguid = UGuid.NewUGuid();

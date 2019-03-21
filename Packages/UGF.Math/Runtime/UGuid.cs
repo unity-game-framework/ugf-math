@@ -64,8 +64,8 @@ namespace UGF.Math.Runtime
         /// <param name="uguid">The source uguid.</param>
         public UGuid(UGuid uguid)
         {
-            m_value0 = uguid.Value0;
-            m_value1 = uguid.Value1;
+            m_value0 = uguid.m_value0;
+            m_value1 = uguid.m_value1;
         }
 
         /// <summary>
@@ -80,8 +80,8 @@ namespace UGF.Math.Runtime
 
             UGuid uguid = converter.UGuid;
 
-            m_value0 = uguid.Value0;
-            m_value1 = uguid.Value1;
+            m_value0 = uguid.m_value0;
+            m_value1 = uguid.m_value1;
         }
 
         /// <summary>
@@ -96,10 +96,26 @@ namespace UGF.Math.Runtime
 
             UGuid uguid = converter.UGuid;
 
-            m_value0 = uguid.Value0;
-            m_value1 = uguid.Value1;
+            m_value0 = uguid.m_value0;
+            m_value1 = uguid.m_value1;
         }
 
+        /// <summary>
+        /// Creates uguid from the specified byte array representation of the guid data.
+        /// </summary>
+        /// <param name="bytes">The byte array representation of the guid data.</param>
+        public UGuid(byte[] bytes)
+        {
+            Converter converter = m_converter;
+            
+            converter.Guid = new Guid(bytes);
+
+            UGuid uguid = converter.UGuid;
+
+            m_value0 = uguid.m_value0;
+            m_value1 = uguid.m_value1;
+        }
+        
         /// <summary>
         /// Converts uguid data to new byte array.
         /// </summary>
