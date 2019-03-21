@@ -5,7 +5,7 @@ using UnityEngine;
 namespace UGF.Math.Runtime
 {
     [Serializable]
-    public struct UGuid
+    public struct UGuid : IEquatable<UGuid>, IComparable<UGuid>
     {
         [SerializeField] private long m_value0;
         [SerializeField] private long m_value1;
@@ -133,6 +133,13 @@ namespace UGF.Math.Runtime
             converter.Guid = Guid.NewGuid();
 
             return converter.UGuid;
+        }
+
+        public int CompareTo(UGuid other)
+        {
+            int value0Comparison = m_value0.CompareTo(other.m_value0);
+            
+            return value0Comparison != 0 ? value0Comparison : m_value1.CompareTo(other.m_value1);
         }
 
         public override string ToString()
