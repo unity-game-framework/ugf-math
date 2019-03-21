@@ -4,15 +4,28 @@ using UnityEngine;
 
 namespace UGF.Math.Runtime
 {
+    /// <summary>
+    /// Represents the Unity serializable Guid.
+    /// </summary>
     [Serializable]
     public struct UGuid : IEquatable<UGuid>, IComparable<UGuid>
     {
         [SerializeField] private long m_value0;
         [SerializeField] private long m_value1;
 
+        /// <summary>
+        /// Gets the first value part of the guid data.
+        /// </summary>
         public long Value0 { get { return m_value0; } }
+        
+        /// <summary>
+        /// Gets the second value part of the guid data.
+        /// </summary>
         public long Value1 { get { return m_value1; } }
 
+        /// <summary>
+        /// Gets the empty uguid, that represents a Guid.Empty.
+        /// </summary>
         public static UGuid Empty { get { return m_empty; } }
 
         private static readonly Converter m_converter = new Converter();
@@ -34,18 +47,31 @@ namespace UGF.Math.Runtime
             m_empty = converter.UGuid;
         }
 
+        /// <summary>
+        /// Creates uguid from the specified first and second value parts of the guid data.
+        /// </summary>
+        /// <param name="value0">The first value part of the guid data.</param>
+        /// <param name="value1">The second value part of the guid data.</param>
         public UGuid(long value0, long value1)
         {
             m_value0 = value0;
             m_value1 = value1;
         }
 
+        /// <summary>
+        /// Creates uguid from the specified uguid data.
+        /// </summary>
+        /// <param name="uguid">The source uguid.</param>
         public UGuid(UGuid uguid)
         {
             m_value0 = uguid.Value0;
             m_value1 = uguid.Value1;
         }
 
+        /// <summary>
+        /// Creates uguid from the specified guid.
+        /// </summary>
+        /// <param name="guid">The source guid.</param>
         public UGuid(Guid guid)
         {
             Converter converter = m_converter;
@@ -58,6 +84,10 @@ namespace UGF.Math.Runtime
             m_value1 = uguid.Value1;
         }
 
+        /// <summary>
+        /// Creates uguid from the specified guid string representation.
+        /// </summary>
+        /// <param name="guid">The guid representation.</param>
         public UGuid(string guid)
         {
             Converter converter = m_converter;
@@ -70,6 +100,9 @@ namespace UGF.Math.Runtime
             m_value1 = uguid.Value1;
         }
 
+        /// <summary>
+        /// Converts uguid data to new byte array.
+        /// </summary>
         public byte[] ToByteArray()
         {
             Converter converter = m_converter;
@@ -126,6 +159,9 @@ namespace UGF.Math.Runtime
             return converter.UGuid;
         }
 
+        /// <summary>
+        /// Generates new uguid.
+        /// </summary>
         public static UGuid NewUGuid()
         {
             Converter converter = m_converter;
