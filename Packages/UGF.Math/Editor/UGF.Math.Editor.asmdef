@@ -1,0 +1,17 @@
+{
+    "name": "UGF.Math.Editor",
+    "references": [
+        "GUID:8b6feb06b3e49da4f8cbda833160c1ad"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": []
+}
