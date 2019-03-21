@@ -1,0 +1,20 @@
+{
+    "name": "UGF.Math.Editor.Tests",
+    "references": [
+        "GUID:8b6feb06b3e49da4f8cbda833160c1ad",
+        "GUID:b4f69d0e991d3504eb676407af7594c4"
+    ],
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": []
+}

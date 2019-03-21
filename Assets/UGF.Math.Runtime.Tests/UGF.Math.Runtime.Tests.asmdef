@@ -1,0 +1,17 @@
+{
+    "name": "UGF.Math.Runtime.Tests",
+    "references": [
+        "GUID:8b6feb06b3e49da4f8cbda833160c1ad"
+    ],
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": []
+}
