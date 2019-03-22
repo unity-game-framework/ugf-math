@@ -28,7 +28,6 @@ namespace UGF.Math.Runtime
         /// </summary>
         public static UGuid Empty { get { return m_empty; } }
 
-        private static readonly Converter m_converter = new Converter();
         private static readonly UGuid m_empty;
 
         [StructLayout(LayoutKind.Explicit)]
@@ -40,9 +39,7 @@ namespace UGF.Math.Runtime
 
         static UGuid()
         {
-            Converter converter = m_converter;
-
-            converter.Guid = Guid.Empty;
+            var converter = new Converter { Guid = Guid.Empty };
 
             m_empty = converter.UGuid;
         }
@@ -74,9 +71,7 @@ namespace UGF.Math.Runtime
         /// <param name="guid">The source guid.</param>
         public UGuid(Guid guid)
         {
-            Converter converter = m_converter;
-
-            converter.Guid = guid;
+            var converter = new Converter { Guid = guid };
 
             UGuid uguid = converter.UGuid;
 
@@ -90,9 +85,7 @@ namespace UGF.Math.Runtime
         /// <param name="guid">The guid representation.</param>
         public UGuid(string guid)
         {
-            Converter converter = m_converter;
-
-            converter.Guid = new Guid(guid);
+            var converter = new Converter { Guid = new Guid(guid) };
 
             UGuid uguid = converter.UGuid;
 
@@ -106,9 +99,7 @@ namespace UGF.Math.Runtime
         /// <param name="bytes">The byte array representation of the guid data.</param>
         public UGuid(byte[] bytes)
         {
-            Converter converter = m_converter;
-            
-            converter.Guid = new Guid(bytes);
+            var converter = new Converter { Guid = new Guid(bytes) };
 
             UGuid uguid = converter.UGuid;
 
@@ -121,9 +112,7 @@ namespace UGF.Math.Runtime
         /// </summary>
         public byte[] ToByteArray()
         {
-            Converter converter = m_converter;
-
-            converter.UGuid = this;
+            var converter = new Converter { UGuid = this };
 
             return converter.Guid.ToByteArray();
         }
@@ -159,18 +148,14 @@ namespace UGF.Math.Runtime
 
         public static implicit operator Guid(UGuid uguid)
         {
-            Converter converter = m_converter;
-
-            converter.UGuid = uguid;
+            var converter = new Converter { UGuid = uguid };
 
             return converter.Guid;
         }
 
         public static implicit operator UGuid(Guid guid)
         {
-            Converter converter = m_converter;
-
-            converter.Guid = guid;
+            var converter = new Converter { Guid = guid };
 
             return converter.UGuid;
         }
@@ -180,9 +165,7 @@ namespace UGF.Math.Runtime
         /// </summary>
         public static UGuid NewUGuid()
         {
-            Converter converter = m_converter;
-
-            converter.Guid = Guid.NewGuid();
+            var converter = new Converter { Guid = Guid.NewGuid() };
 
             return converter.UGuid;
         }
@@ -196,9 +179,7 @@ namespace UGF.Math.Runtime
 
         public override string ToString()
         {
-            Converter converter = m_converter;
-
-            converter.UGuid = this;
+            var converter = new Converter { UGuid = this };
 
             return converter.Guid.ToString("N");
         }
