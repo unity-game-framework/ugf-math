@@ -21,7 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Nothing.
 
 ### Fixed
-- Nothing.
+- IL2CPP build fails with converter static field. (#3)
 
 ### Security
 - Nothing.
